@@ -29,24 +29,22 @@ print("{} / {} = {}".format(num1, num2, calc.div()))
 
 # Audio 클래스
 class Audio:
-    power = False
-    volume = 1
-
     def __init__(self, power, volume) -> None:
         self.power = power
         self.volume = volume
 
     def switch(self, on_off):
-        if on_off == "on":
-            self.power = True
-        else:
-            self.power = False
+        self.power = on_off
 
     def set_volume(self, volume):
         self.volume = volume
 
     def tune(self):
-        if self.power == True:
-            print("La La La ...")
-        else:
-            print("전원을 켜주세요")
+        message = "La La La ..." if self.power else "전원을 켜주세요"
+        print(message)
+
+
+audio = Audio(False, 1)
+audio.switch(True)
+audio.set_volume(5)
+audio.tune()
